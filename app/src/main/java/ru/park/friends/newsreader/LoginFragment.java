@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-public class RegisterFragment extends Fragment {
+public class LoginFragment extends Fragment {
     private AccountViewModel accountViewModel;
     private EditText email, password;
     private Button registerButton;
@@ -44,16 +44,17 @@ public class RegisterFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.register_fragment, container, false);
+        return inflater.inflate(R.layout.login_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        email = view.findViewById(R.id.register_email);
-        password = view.findViewById(R.id.register_password);
-        registerButton = view.findViewById(R.id.register_button);
-        errorTextView = view.findViewById(R.id.register_error);
+
+        email = view.findViewById(R.id.login_email);
+        password = view.findViewById(R.id.login_password);
+        registerButton = view.findViewById(R.id.login_button);
+        errorTextView = view.findViewById(R.id.login_error);
 
         email.addTextChangedListener(textWatcher);
         password.addTextChangedListener(textWatcher);
@@ -63,16 +64,16 @@ public class RegisterFragment extends Fragment {
             public void onClick(View v) {
                 email.clearFocus();
                 password.clearFocus();
-                accountViewModel.register(email.getText().toString(), password.getText().toString());
+                accountViewModel.login(email.getText().toString(), password.getText().toString());
             }
         });
 
-        view.findViewById(R.id.go_to_login_button).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.go_to_reg_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Router router = (Router) getActivity();
                 if (router != null) {
-                    router.openLogin();
+                    router.openRegistration();
                 }
             }
         });
@@ -85,6 +86,5 @@ public class RegisterFragment extends Fragment {
                         getResources().getString(R.string.invalid_email),
                         getResources().getString(R.string.invalid_password))
                 );
-
     }
 }

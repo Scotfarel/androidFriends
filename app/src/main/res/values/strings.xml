@@ -7,4 +7,6 @@
     <string name="action_sign_in">Sign in</string>
     <string name="invalid_email">Not a valid email</string>
     <string name="invalid_password">Password must be 8 or more characters</string>
+    <string name="have_account">Already have an account? Log In</string>>
+    <string name="first_time">New user? Sigh Up</string>
 </resources>
