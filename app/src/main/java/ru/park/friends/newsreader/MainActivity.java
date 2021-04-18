@@ -34,4 +34,12 @@ public class MainActivity extends AppCompatActivity implements Router {
                     .replace(R.id.main_fragment_container, new LoginFragment())
                     .commit();
     }
+
+    @Override
+    public void openFeed() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_fragment_container, new FeedFragment())
+                .commit();
+    }
 }

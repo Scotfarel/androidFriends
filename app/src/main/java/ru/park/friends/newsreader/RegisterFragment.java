@@ -83,7 +83,8 @@ public class RegisterFragment extends Fragment {
                 .observe(getViewLifecycleOwner(), new AccountObserver(
                         errorTextView,
                         getResources().getString(R.string.invalid_email),
-                        getResources().getString(R.string.invalid_password))
+                        getResources().getString(R.string.invalid_password),
+                        (Router) getActivity())
                 );
 
     }

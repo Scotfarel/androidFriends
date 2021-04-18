@@ -29,7 +29,11 @@ public class AccountViewModel extends AndroidViewModel {
             return;
         }
 
-        authState = repository.registerUser(email, password);
+        MediatorLiveData<RegisterState> repoState = repository.registerUser(email, password);
+        authState.addSource(repoState, registerState -> {
+            authState.postValue(registerState);
+            authState.removeSource(repoState);
+        });
     }
 
     public void login(String email, String password) {
@@ -37,7 +41,11 @@ public class AccountViewModel extends AndroidViewModel {
             return;
         }
 
-        authState = repository.loginUser(email, password);
+        MediatorLiveData<RegisterState> repoState = repository.loginUser(email, password);
+        authState.addSource(repoState, registerState -> {
+            authState.postValue(registerState);
+            authState.removeSource(repoState);
+        });
     }
 
     private boolean isValid(String email, String password) {

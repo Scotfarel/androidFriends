@@ -9,11 +9,18 @@ public class AccountObserver implements Observer<RegisterState> {
     private TextView errorTextView;
     private String invalidEmail;
     private String invalidPassword;
+    private Router router;
 
-    AccountObserver(TextView errorTextView, String invalidEmail, String invalidPassword) {
+    AccountObserver(
+            TextView errorTextView,
+            String invalidEmail,
+            String invalidPassword,
+            Router router
+    ) {
         this.errorTextView = errorTextView;
         this.invalidEmail = invalidEmail;
         this.invalidPassword = invalidPassword;
+        this.router = router;
     }
 
     @Override
@@ -27,6 +34,13 @@ public class AccountObserver implements Observer<RegisterState> {
         if (loginState == RegisterState.SHORT_PASSWORD) {
             errorTextView.setText(invalidPassword);
             errorTextView.setVisibility(View.VISIBLE);
+            return;
+        }
+
+        if (loginState == RegisterState.SUCCESS) {
+            if (router != null) {
+                router.openFeed();
+            }
             return;
         }
     }
