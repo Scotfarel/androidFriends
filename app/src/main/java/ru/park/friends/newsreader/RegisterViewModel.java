@@ -11,6 +11,8 @@ import androidx.lifecycle.MediatorLiveData;
 
 public class RegisterViewModel extends AndroidViewModel {
 
+    private String lastEmail = "";
+    private String lastPassword = "";
     private MediatorLiveData<RegisterState> authState = new MediatorLiveData<>();
     private AccountRepository repository = new AccountRepository();
 
@@ -23,6 +25,12 @@ public class RegisterViewModel extends AndroidViewModel {
     }
 
     public void register(String email, String password) {
+        if (email == lastEmail && password == lastPassword) {
+            return;
+        }
+        lastEmail = email;
+        lastPassword = password;
+
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             authState.postValue(RegisterState.NOT_EMAIL);
             return;
