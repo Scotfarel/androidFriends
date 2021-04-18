@@ -36,6 +36,11 @@ public class RegisterViewModel extends AndroidViewModel {
             return;
         }
 
+        if (password.length() < 8) {
+            authState.postValue(RegisterState.SHORT_PASSWORD);
+            return;
+        }
+
         authState = repository.registerUser(email, password);
     }
 }

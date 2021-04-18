@@ -88,6 +88,11 @@ public class RegisterFragment extends Fragment {
                 errorTextView.setText(getResources().getString(R.string.invalid_email));
                 errorTextView.setVisibility(View.VISIBLE);
             }
+
+            if (loginState == RegisterState.SHORT_PASSWORD) {
+                errorTextView.setText(getResources().getString(R.string.invalid_password));
+                errorTextView.setVisibility(View.VISIBLE);
+            }
         }
     }
 

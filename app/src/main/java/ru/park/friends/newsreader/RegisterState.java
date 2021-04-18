@@ -4,4 +4,5 @@ enum RegisterState {
     SUCCESS,
     FAILED,
     NOT_EMAIL,
+    SHORT_PASSWORD,
 }
