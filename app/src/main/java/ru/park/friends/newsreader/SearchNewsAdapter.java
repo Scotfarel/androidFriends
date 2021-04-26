@@ -1,5 +1,6 @@
 package ru.park.friends.newsreader;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,13 +8,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class SearchNewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
     private NewsAPI.News news;
+    private Context context;
 
     public SearchNewsAdapter(LifecycleOwner owner, SearchViewModel searchViewModel) {
+        this.context = (Context) owner;
         LiveData<NewsAPI.News> liveData = searchViewModel.getNewsLiveData();
         liveData.observe(owner, data -> {
             news = data;
@@ -31,7 +33,7 @@ public class SearchNewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
         if (news != null) {
-            holder.bind(news.articles.get(position));
+            holder.bind(context, news.articles.get(position));
         }
     }
 

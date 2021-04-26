@@ -42,7 +42,7 @@ public class SearchFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.search_result);
         recyclerView.setItemViewCacheSize(10);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(new SearchNewsAdapter(this, searchViewModel));
+        recyclerView.setAdapter(new SearchNewsAdapter(getActivity(), searchViewModel));
 
         return view;
     }

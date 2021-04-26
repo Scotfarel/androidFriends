@@ -1,12 +1,14 @@
 package ru.park.friends.newsreader;
 
-import android.graphics.Color;
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 public class NewsViewHolder extends RecyclerView.ViewHolder {
 
@@ -22,8 +24,8 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         author = itemView.findViewById(R.id.news_view_author);
     }
 
-    public void bind(NewsAPI.Article article) {
-        image.setBackgroundColor(Color.GREEN);
+    public void bind(Context owner, NewsAPI.Article article) {
+        Glide.with((Context) owner).load(article.urlToImage).into(image);
         title.setText(article.title);
         author.setText(article.author);
     }

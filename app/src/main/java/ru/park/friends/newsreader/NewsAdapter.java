@@ -1,5 +1,6 @@
 package ru.park.friends.newsreader;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,8 +20,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 
     private final ExecutorService executorServiceNetwork = Executors.newFixedThreadPool(2);
     private NewsAPI.News news;
+    private Context context;
 
-    public NewsAdapter() {
+    public NewsAdapter(Context context) {
+        this.context = context;
         executorServiceNetwork.execute(getNews());
     }
 
@@ -34,7 +37,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
         if (news != null) {
-            holder.bind(news.articles.get(position));
+            holder.bind(context, news.articles.get(position));
         }
     }
 

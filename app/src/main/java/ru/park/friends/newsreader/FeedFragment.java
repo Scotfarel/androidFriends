@@ -21,7 +21,7 @@ public class FeedFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.news_feed);
         recyclerView.setItemViewCacheSize(10);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(new NewsAdapter());
+        recyclerView.setAdapter(new NewsAdapter(getActivity()));
 
         return view;
     }
