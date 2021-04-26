@@ -6,6 +6,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface NewsAPI {
 
@@ -54,4 +55,7 @@ public interface NewsAPI {
 
     @GET("/v2/everything?q=Apple&from=2021-04-20&sortBy=popularity&apiKey=")
     Call<News> getAll();
+
+    @GET("/v2/everything?from=2021-04-20&sortBy=popularity&apiKey=")
+    Call<News> getNewsByTitle(@Query("q") String title);
 }

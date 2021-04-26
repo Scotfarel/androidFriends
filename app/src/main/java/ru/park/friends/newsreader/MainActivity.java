@@ -2,6 +2,7 @@ package ru.park.friends.newsreader;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity implements Router {
@@ -37,9 +38,7 @@ public class MainActivity extends AppCompatActivity implements Router {
 
     @Override
     public void openFeed() {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.main_fragment_container, new FeedFragment())
-                .commit();
+        Intent intent = new Intent(getApplicationContext(), NavigationActivity.class);
+        startActivity(intent);
     }
 }
