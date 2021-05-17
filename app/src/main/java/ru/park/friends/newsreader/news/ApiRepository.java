@@ -1,4 +1,4 @@
-package ru.park.friends.newsreader;
+package ru.park.friends.newsreader.news;
 
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;

@@ -1,9 +1,11 @@
-package ru.park.friends.newsreader;
+package ru.park.friends.newsreader.account;
 
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.lifecycle.Observer;
+
+import ru.park.friends.newsreader.Router;
 
 public class AccountObserver implements Observer<RegisterState> {
     private TextView errorTextView;

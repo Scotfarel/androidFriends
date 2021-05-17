@@ -1,4 +1,4 @@
-package ru.park.friends.newsreader;
+package ru.park.friends.newsreader.news;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import ru.park.friends.newsreader.R;
 
 
 public class FeedFragment extends Fragment {

@@ -1,4 +1,4 @@
-package ru.park.friends.newsreader;
+package ru.park.friends.newsreader.account;
 
 enum RegisterState {
     SUCCESS,

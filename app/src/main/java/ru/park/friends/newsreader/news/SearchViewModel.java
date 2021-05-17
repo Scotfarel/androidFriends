@@ -1,4 +1,4 @@
-package ru.park.friends.newsreader;
+package ru.park.friends.newsreader.news;
 
 import android.app.Application;
 import android.util.Log;
@@ -11,6 +11,8 @@ import androidx.lifecycle.MediatorLiveData;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ru.park.friends.newsreader.news.ApiRepository;
+import ru.park.friends.newsreader.news.NewsAPI;
 
 public class SearchViewModel extends AndroidViewModel {
     private MediatorLiveData<NewsAPI.News> news = new MediatorLiveData<>();

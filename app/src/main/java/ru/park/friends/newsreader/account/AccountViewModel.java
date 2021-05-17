@@ -1,4 +1,4 @@
-package ru.park.friends.newsreader;
+package ru.park.friends.newsreader.account;
 
 import android.app.Application;
 import android.util.Patterns;

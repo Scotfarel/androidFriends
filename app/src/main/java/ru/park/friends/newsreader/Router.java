@@ -1,6 +1,6 @@
 package ru.park.friends.newsreader;
 
-interface Router {
+public interface Router {
     void openRegistration();
     void openLogin();
     void openFeed();

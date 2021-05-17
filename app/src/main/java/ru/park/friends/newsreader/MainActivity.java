@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import ru.park.friends.newsreader.account.LoginFragment;
+import ru.park.friends.newsreader.account.RegisterFragment;
+
 public class MainActivity extends AppCompatActivity implements Router {
 
     @Override

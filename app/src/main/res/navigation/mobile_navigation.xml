@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="ru.park.friends.newsreader.SearchFragment"
+        android:name="ru.park.friends.newsreader.news.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/search_fragment" />
 
     <fragment
         android:id="@+id/navigation_feed"
-        android:name="ru.park.friends.newsreader.FeedFragment"
+        android:name="ru.park.friends.newsreader.news.FeedFragment"
         android:label="@string/title_feed"
         tools:layout="@layout/feed_fragment" />
 

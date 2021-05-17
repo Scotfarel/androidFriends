@@ -1,4 +1,4 @@
-package ru.park.friends.newsreader;
+package ru.park.friends.newsreader.account;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,6 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+
+import ru.park.friends.newsreader.R;
+import ru.park.friends.newsreader.Router;
 
 public class LoginFragment extends Fragment {
     private AccountViewModel accountViewModel;

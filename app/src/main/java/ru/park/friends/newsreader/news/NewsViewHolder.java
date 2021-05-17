@@ -1,4 +1,4 @@
-package ru.park.friends.newsreader;
+package ru.park.friends.newsreader.news;
 
 import android.content.Context;
 import android.view.View;
@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+
+import ru.park.friends.newsreader.R;
+import ru.park.friends.newsreader.news.NewsAPI;
 
 public class NewsViewHolder extends RecyclerView.ViewHolder {
 

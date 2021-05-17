@@ -1,4 +1,4 @@
-package ru.park.friends.newsreader;
+package ru.park.friends.newsreader.news;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,6 +15,7 @@ import java.util.concurrent.Executors;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ru.park.friends.newsreader.R;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 

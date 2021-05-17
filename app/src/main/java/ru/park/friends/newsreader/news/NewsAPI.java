@@ -1,4 +1,4 @@
-package ru.park.friends.newsreader;
+package ru.park.friends.newsreader.news;
 
 import java.util.Date;
 import java.util.Iterator;
@@ -53,9 +53,9 @@ public interface NewsAPI {
         }
     }
 
-    @GET("/v2/everything?q=Apple&from=2021-04-20&sortBy=popularity&apiKey=")
+    @GET("/v2/everything?q=Apple&sortBy=popularity&apiKey=")
     Call<News> getAll();
 
-    @GET("/v2/everything?from=2021-04-20&sortBy=popularity&apiKey=")
+    @GET("/v2/everything?sortBy=popularity&apiKey=")
     Call<News> getNewsByTitle(@Query("q") String title);
 }
