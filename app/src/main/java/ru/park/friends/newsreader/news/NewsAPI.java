@@ -1,7 +1,6 @@
 package ru.park.friends.newsreader.news;
 
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import retrofit2.Call;
@@ -14,27 +13,12 @@ public interface NewsAPI {
         public String status;
         public int totalResults;
         public List<Article> articles;
-
-        @Override
-        public String toString() {
-            String str = "";
-            Iterator<Article> iter = articles.iterator();
-            while(iter.hasNext()) {
-                str += iter.next().toString();
-            }
-
-            return str;
-        }
     }
 
     public class Source {
         public String id;
         public String name;
-
-        @Override
-        public String toString() {
-            return name;
-        }
+        public String description;
     }
 
     public class Article {
@@ -46,16 +30,14 @@ public interface NewsAPI {
         public String urlToImage;
         public Date publishedAt;
         public String content;
-
-        @Override
-        public String toString() {
-            return "Source: " + source.toString() + "\nAuthor: " + author + "\nTitle: " + title + "\n";
-        }
     }
 
-    @GET("/v2/everything?q=Apple&sortBy=popularity&apiKey=")
-    Call<News> getAll();
+    @GET("/v2/top-headlines?sortBy=popularity&apiKey=c3cbdce5c9c3479a92de13828bb33da3")
+    Call<News> getAll(@Query("sources") String sources);
 
-    @GET("/v2/everything?sortBy=popularity&apiKey=")
+    @GET("/v2/everything?sortBy=popularity&apiKey=c3cbdce5c9c3479a92de13828bb33da3")
     Call<News> getNewsByTitle(@Query("q") String title);
+
+    @GET("/v2/top-headlines?apiKey=c3cbdce5c9c3479a92de13828bb33da3")
+    Call<News> getNewsBySource(@Query("sources") String source);
 }

@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import org.jetbrains.annotations.NotNull;
+
+import ru.park.friends.newsreader.FeedRouter;
 import ru.park.friends.newsreader.R;
-import ru.park.friends.newsreader.news.NewsAPI;
 
 public class NewsViewHolder extends RecyclerView.ViewHolder {
 
@@ -27,9 +29,17 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         author = itemView.findViewById(R.id.news_view_author);
     }
 
-    public void bind(Context owner, NewsAPI.Article article) {
+    public void bind(Context owner, NewsAPI.@NotNull Article article) {
         Glide.with((Context) owner).load(article.urlToImage).into(image);
         title.setText(article.title);
-        author.setText(article.author);
+        author.setText(article.source.name);
+
+        title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FeedRouter router = (FeedRouter) title.getContext();
+                router.openArticle(article);
+            }
+        });
     }
 }

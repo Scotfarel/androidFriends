@@ -1,31 +1,28 @@
 package ru.park.friends.newsreader.news;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import ru.park.friends.newsreader.R;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
-
-    private final ExecutorService executorServiceNetwork = Executors.newFixedThreadPool(2);
     private NewsAPI.News news;
     private Context context;
 
-    public NewsAdapter(Context context) {
-        this.context = context;
-        executorServiceNetwork.execute(getNews());
+    public NewsAdapter(LifecycleOwner owner, NewsGetter newsGetter) {
+        this.context = (Context) owner;
+        LiveData<NewsAPI.News> liveData = newsGetter.getNews();
+        liveData.observe(owner, data -> {
+            news = data;
+            notifyDataSetChanged();
+        });
     }
 
     @NonNull
@@ -48,29 +45,5 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
             return news.articles.size();
         }
         return 0;
-    }
-
-    private Runnable getNews() {
-        return new Runnable() {
-            @Override
-            public void run() {
-                ApiRepository api = new ApiRepository();
-                api.getNewsAPI().getAll().enqueue(new Callback<NewsAPI.News>() {
-                    @Override
-                    public void onResponse(Call<NewsAPI.News> call, Response<NewsAPI.News> response) {
-                        if (response.isSuccessful() && response.body() != null) {
-                            news = response.body();
-                            notifyDataSetChanged();
-                            return;
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<NewsAPI.News> call, Throwable t) {
-                        Log.d("MY_APP_LOG", "failure");
-                    }
-                });
-            }
-        };
     }
 }

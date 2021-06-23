@@ -8,7 +8,7 @@ import android.os.Bundle;
 import ru.park.friends.newsreader.account.LoginFragment;
 import ru.park.friends.newsreader.account.RegisterFragment;
 
-public class MainActivity extends AppCompatActivity implements Router {
+public class MainActivity extends AppCompatActivity implements AccountRouter {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

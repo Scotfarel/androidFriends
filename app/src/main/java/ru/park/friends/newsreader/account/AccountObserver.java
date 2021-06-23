@@ -5,19 +5,19 @@ import android.widget.TextView;
 
 import androidx.lifecycle.Observer;
 
-import ru.park.friends.newsreader.Router;
+import ru.park.friends.newsreader.AccountRouter;
 
 public class AccountObserver implements Observer<RegisterState> {
     private TextView errorTextView;
     private String invalidEmail;
     private String invalidPassword;
-    private Router router;
+    private AccountRouter router;
 
     AccountObserver(
             TextView errorTextView,
             String invalidEmail,
             String invalidPassword,
-            Router router
+            AccountRouter router
     ) {
         this.errorTextView = errorTextView;
         this.invalidEmail = invalidEmail;

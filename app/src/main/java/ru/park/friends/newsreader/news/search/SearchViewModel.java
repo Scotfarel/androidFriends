@@ -1,4 +1,4 @@
-package ru.park.friends.newsreader.news;
+package ru.park.friends.newsreader.news.search;
 
 import android.app.Application;
 import android.util.Log;
@@ -13,8 +13,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import ru.park.friends.newsreader.news.ApiRepository;
 import ru.park.friends.newsreader.news.NewsAPI;
+import ru.park.friends.newsreader.news.NewsGetter;
 
-public class SearchViewModel extends AndroidViewModel {
+public class SearchViewModel extends AndroidViewModel implements NewsGetter {
     private MediatorLiveData<NewsAPI.News> news = new MediatorLiveData<>();
     private ApiRepository apiRepo = new ApiRepository();
 
@@ -22,7 +23,7 @@ public class SearchViewModel extends AndroidViewModel {
         super(application);
     }
 
-    public LiveData<NewsAPI.News> getNewsLiveData() {
+    public LiveData<NewsAPI.News> getNews() {
         return news;
     }
 

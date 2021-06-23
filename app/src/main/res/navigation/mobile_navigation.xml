@@ -7,14 +7,20 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="ru.park.friends.newsreader.news.SearchFragment"
+        android:name="ru.park.friends.newsreader.news.search.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/search_fragment" />
 
     <fragment
         android:id="@+id/navigation_feed"
-        android:name="ru.park.friends.newsreader.news.FeedFragment"
+        android:name="ru.park.friends.newsreader.news.feed.FeedFragment"
         android:label="@string/title_feed"
         tools:layout="@layout/feed_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_user"
+        android:name="ru.park.friends.newsreader.news.user.UserFragment"
+        android:label="@string/title_user"
+        tools:layout="@layout/user_fragment" />
 
 </navigation>

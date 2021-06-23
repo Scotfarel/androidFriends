@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import ru.park.friends.newsreader.R;
-import ru.park.friends.newsreader.Router;
+import ru.park.friends.newsreader.AccountRouter;
 
 public class LoginFragment extends Fragment {
     private AccountViewModel accountViewModel;
@@ -74,7 +74,7 @@ public class LoginFragment extends Fragment {
         view.findViewById(R.id.go_to_reg_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Router router = (Router) getActivity();
+                AccountRouter router = (AccountRouter) getActivity();
                 if (router != null) {
                     router.openRegistration();
                 }
@@ -88,7 +88,7 @@ public class LoginFragment extends Fragment {
                         errorTextView,
                         getResources().getString(R.string.invalid_email),
                         getResources().getString(R.string.invalid_password),
-                        (Router) getActivity())
+                        (AccountRouter) getActivity())
                 );
     }
 }
