@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">NewsReader</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_register">Register</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="invalid_email">Not a valid email</string>
+    <string name="invalid_password">Password must be 8 or more characters</string>
+    <string name="have_account">Already have an account? Log In</string>>
+    <string name="first_time">New user? Sigh Up</string>
+    <string name="title_feed">Feed</string>
+    <string name="title_search">Search</string>
+    <string name="title_user">User</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="follow_button_text">Follow</string>
+</resources>
